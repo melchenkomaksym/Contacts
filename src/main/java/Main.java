@@ -1,7 +1,8 @@
-package contacts;
-
 import java.io.*;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.Scanner;
 
 public class Main {
 
@@ -51,7 +52,7 @@ public class Main {
                         System.out.println("Enter search query:");
                         String searchQuery = scanner.nextLine();
                         ContactBook searchResults = phoneBook.getSearchResults(searchQuery);
-                        System.out.println(String.format("Found %d results:", searchResults.size()));
+                        System.out.printf("Found %d results:%n", searchResults.size());
                         list(searchResults.getContacts());
 
                         System.out.println("[search] Enter action ([number], back, again):");
@@ -71,7 +72,7 @@ public class Main {
             }
             System.out.println();
         } while (!action.equals("exit"));
-        //writePhonebook(phoneBook, fileName);
+        writePhonebook(phoneBook, fileName);
     }
 
     public static String askForAction() {
@@ -172,11 +173,13 @@ public class Main {
         if (number == null) {
             return false;
         }
+        
         try {
-            double d = Double.parseDouble(number);
+            Double.parseDouble(number);
         } catch (NumberFormatException nfe) {
             return false;
         }
+
         return true;
     }
 
@@ -198,8 +201,8 @@ public class Main {
 
         switch (recordAction.toLowerCase()) {
             case "edit":
-                System.out.println(String.format("Select a field (%s):",
-                        Arrays.toString(chosenContact.getAllFields())));
+                System.out.printf("Select a field (%s):%n",
+                        Arrays.toString(chosenContact.getAllFields()));
                 String field = scanner.nextLine();
                 System.out.printf("Enter %s:%n", field);
                 String value = scanner.nextLine();
@@ -210,4 +213,5 @@ public class Main {
                 break;
         }
     }
+
 }

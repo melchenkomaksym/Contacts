@@ -1,6 +1,5 @@
-package contacts;
-
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
@@ -80,11 +79,12 @@ public abstract class Contact implements Serializable {
     }
 
     protected String getFormattedDate(String localDateTime) {
-        return LocalDateTime.parse(localDateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")).toString();
+        return LocalDate.parse(localDateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString();
     }
 
     private boolean isPhoneNumberValid(String phoneNumber) {
         Pattern pattern = Pattern.compile("^\\+?(\\(\\w+\\)|\\w+[ -]\\(\\w{2,}\\)|\\w+)([ -]\\w{2,})*");
         return pattern.matcher(phoneNumber).matches();
     }
+
 }

@@ -1,5 +1,3 @@
-package contacts;
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
@@ -112,17 +110,19 @@ public class Person extends Contact implements Serializable {
 
     public String toString() {
         return "Name: " + this.getName() + "\n"
-            + "Surname: " + this.getSurname() + "\n"
-            + "Birth date: " + this.getBirthDate() + "\n"
-            + "Gender: " + this.getGender() + "\n"
-            + "Number: " + this.getPhoneNumber() + "\n"
-            + "Time created: " + this.getCreatedTime().truncatedTo(ChronoUnit.MINUTES) + "\n"
-            + "Time last edit: " + this.getLastEditTime().truncatedTo(ChronoUnit.MINUTES);
+                + "Surname: " + this.getSurname() + "\n"
+                + "Birth date: " + this.getBirthDate() + "\n"
+                + "Gender: " + this.getGender() + "\n"
+                + "Number: " + this.getPhoneNumber() + "\n"
+                + "Time created: " + this.getCreatedTime().truncatedTo(ChronoUnit.MINUTES) + "\n"
+                + "Time last edit: " + this.getLastEditTime().truncatedTo(ChronoUnit.MINUTES);
     }
 
     public boolean matchesSearchCondition(String condition) {
+        condition = condition.toLowerCase();
         return (this.getName().toLowerCase().contains(condition) || this.getName().toLowerCase().matches(condition)) ||
                 (this.getSurname().toLowerCase().contains(condition) || this.getSurname().toLowerCase().matches(condition)) ||
                 (this.getPhoneNumber().toLowerCase().contains(condition) || this.getPhoneNumber().toLowerCase().matches(condition));
     }
+
 }

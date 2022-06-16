@@ -1,10 +1,8 @@
-package contacts;
-
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class ContactBook implements Serializable {
+
     private final ArrayList<Contact> listOfContacts = new ArrayList<>();
 
     public ArrayList<Contact> getContacts() {
@@ -52,4 +50,5 @@ public class ContactBook implements Serializable {
         }
         return searchResults;
     }
+
 }

@@ -1,5 +1,3 @@
-package contacts;
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -73,4 +71,5 @@ public class Organization extends Contact implements Serializable {
         return (this.getName().toLowerCase().contains(condition) || this.getName().toLowerCase().matches(condition)) ||
                 (this.getPhoneNumber().toLowerCase().contains(condition) || this.getPhoneNumber().toLowerCase().matches(condition));
     }
+
 }
