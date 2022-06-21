@@ -1,11 +1,12 @@
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ContactBook implements Serializable {
 
-    private final ArrayList<Contact> listOfContacts = new ArrayList<>();
+    private final List<Contact> listOfContacts = new CopyOnWriteArrayList<>();
 
-    public ArrayList<Contact> getContacts() {
+    public List<Contact> getContacts() {
         return this.listOfContacts;
     }
 

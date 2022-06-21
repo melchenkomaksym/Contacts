@@ -9,11 +9,18 @@ public abstract class Contact implements Serializable {
 
     private String name;
     private String phoneNumber = "";
-    private LocalDateTime createdTime;
+    private final LocalDateTime createdTime;
     private LocalDateTime lastEditTime;
 
     Contact() {
         this.createdTime = LocalDateTime.now();
+    }
+
+    public Contact(String name, String phoneNumber) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.createdTime = LocalDateTime.now();
+        this.lastEditTime = LocalDateTime.now();
     }
 
     public String getName() {
@@ -41,10 +48,6 @@ public abstract class Contact implements Serializable {
         return createdTime;
     }
 
-    public void setCreatedTime(LocalDateTime createdTime) {
-        this.createdTime = createdTime;
-    }
-
     public LocalDateTime getLastEditTime() {
         return lastEditTime;
     }
@@ -60,8 +63,6 @@ public abstract class Contact implements Serializable {
     public abstract String[] getAllFields();
 
     public abstract void setField(String field, String value);
-
-    public abstract String getValue(String field);
 
     public abstract boolean matchesSearchCondition(String condition);
 

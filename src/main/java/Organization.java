@@ -8,6 +8,11 @@ public class Organization extends Contact implements Serializable {
 
     Organization() {}
 
+    public Organization(String name, String phoneNumber, String address) {
+        super(name, phoneNumber);
+        this.address = address;
+    }
+
     public String getAddress() {
         return address;
     }

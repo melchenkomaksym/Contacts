@@ -173,7 +173,7 @@ public class Main {
         if (number == null) {
             return false;
         }
-        
+
         try {
             Double.parseDouble(number);
         } catch (NumberFormatException nfe) {

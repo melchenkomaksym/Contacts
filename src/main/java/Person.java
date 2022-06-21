@@ -11,6 +11,13 @@ public class Person extends Contact implements Serializable {
 
     Person() {}
 
+    public Person(String name, String surname, String phoneNumber, String birthDate, String gender) {
+        super(name, phoneNumber);
+        this.surname = surname;
+        this.birthDate = birthDate;
+        this.gender = gender;
+    }
+
     public String getSurname() {
         return surname;
     }
