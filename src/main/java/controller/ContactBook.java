@@ -1,3 +1,7 @@
+package controller;
+
+import entity.Contact;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -41,6 +45,13 @@ public class ContactBook implements Serializable {
     public Contact getContact(int index) {
         return listOfContacts.get(index);
     }
+
+    /**
+     * Method for searching by criteria.
+     *
+     * @param searchQuery criteria for search
+     * @return ContactBook instance with entries that satisfy the criteria.
+     */
 
     public ContactBook getSearchResults(String searchQuery) {
         ContactBook searchResults = new ContactBook();

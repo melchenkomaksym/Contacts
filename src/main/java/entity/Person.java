@@ -1,3 +1,5 @@
+package entity;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
@@ -9,7 +11,7 @@ public class Person extends Contact implements Serializable {
     private String birthDate;
     private String gender;
 
-    Person() {}
+    public Person() {}
 
     public Person(String name, String surname, String phoneNumber, String birthDate, String gender) {
         super(name, phoneNumber);

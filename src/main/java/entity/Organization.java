@@ -1,3 +1,5 @@
+package entity;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -6,7 +8,7 @@ public class Organization extends Contact implements Serializable {
 
     private String address;
 
-    Organization() {}
+    public Organization() {}
 
     public Organization(String name, String phoneNumber, String address) {
         super(name, phoneNumber);
@@ -45,6 +47,13 @@ public class Organization extends Contact implements Serializable {
         }
     }
 
+    /**
+     * Method for getting values for particular fields.
+     *
+     * @param field name of the field
+     * @return value of the field
+     */
+
     public String getValue(String field) {
         String value = "";
         switch (field) {
@@ -65,7 +74,7 @@ public class Organization extends Contact implements Serializable {
 
     @Override
     public String toString() {
-        return "Organization name: " + this.getName() + "\n"
+        return "entity.Organization name: " + this.getName() + "\n"
                 + "Address: " + this.getAddress() + "\n"
                 + "Number: " + this.getPhoneNumber() + "\n"
                 + "Time created: " + this.getCreatedTime().truncatedTo(ChronoUnit.MINUTES) + "\n"

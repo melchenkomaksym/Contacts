@@ -1,9 +1,15 @@
+package entity;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.regex.Pattern;
+
+/**
+ * Class contains common fields and methods for Person and Organization.
+ */
 
 public abstract class Contact implements Serializable {
 
@@ -82,6 +88,13 @@ public abstract class Contact implements Serializable {
     protected String getFormattedDate(String localDateTime) {
         return LocalDate.parse(localDateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd")).toString();
     }
+
+    /**
+     * Method verifies that phone number matches the pattern.
+     *
+     * @param phoneNumber the phone number
+     * @return verification result
+     */
 
     private boolean isPhoneNumberValid(String phoneNumber) {
         Pattern pattern = Pattern.compile("^\\+?(\\(\\w+\\)|\\w+[ -]\\(\\w{2,}\\)|\\w+)([ -]\\w{2,})*");
